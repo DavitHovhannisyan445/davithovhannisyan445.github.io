@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Davit Hovhannisyan</title>
+<meta name="description" content="Davit Hovhannisyan — ML engineer and researcher. Co-founder of Droplet: invisible watermarking for AI content provenance and AI agent safety.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #1d1f23;
+    --muted: #5d6470;
+    --line: #e6e3de;
+    --accent: #1f5fbf;
+    --accent-soft: #e8f0fb;
+    --badge: #0f7a52;
+    --badge-soft: #e3f4ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14161a;
+      --surface: #1b1e23;
+      --text: #e8e9ec;
+      --muted: #a2a9b4;
+      --line: #2c3038;
+      --accent: #7fb0ff;
+      --accent-soft: #1d2a3f;
+      --badge: #5fd3a3;
+      --badge-soft: #17322a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14161a; --surface: #1b1e23; --text: #e8e9ec; --muted: #a2a9b4;
+    --line: #2c3038; --accent: #7fb0ff; --accent-soft: #1d2a3f; --badge: #5fd3a3; --badge-soft: #17322a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 64px 20px 48px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .role { color: var(--muted); font-size: 1.05rem; margin: 0 0 18px; }
+  .lede { font-size: 1.08rem; margin: 0 0 22px; max-width: 62ch; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+  .links a {
+    display: inline-block; padding: 6px 12px; border: 1px solid var(--line);
+    border-radius: 999px; font-size: 0.9rem; font-weight: 500; color: var(--text); background: var(--surface);
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  section { margin-top: 52px; }
+  h2 {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.3rem; font-weight: 600; margin: 0 0 8px; }
+  p { margin: 0 0 12px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 22px 14px;
+  }
+  .card .tag { color: var(--muted); font-size: 0.92rem; margin: -2px 0 12px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .box { border-top: 1px solid var(--line); padding-top: 12px; }
+  .box h4 { margin: 0 0 6px; font-size: 0.95rem; font-weight: 600; }
+  .box ul { margin: 0; padding-left: 18px; color: var(--text); }
+  .box li { margin-bottom: 6px; font-size: 0.95rem; }
+
+  .pubs { list-style: none; padding: 0; margin: 0; }
+  .pubs li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .pubs li:last-child { border-bottom: none; }
+  .pub-title { font-weight: 600; display: block; margin-bottom: 2px; }
+  .pub-meta { color: var(--muted); font-size: 0.93rem; }
+  .pub-meta em { font-style: italic; }
+  .badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--badge); background: var(--badge-soft); border-radius: 4px; padding: 2px 7px; margin-right: 6px; vertical-align: 2px;
+  }
+  .badge.wip { color: var(--accent); background: var(--accent-soft); }
+  .sub { margin-top: 22px; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+
+  .rows { display: grid; gap: 14px; }
+  .row { display: grid; grid-template-columns: 130px 1fr; gap: 16px; }
+  .row .when { color: var(--muted); font-size: 0.93rem; padding-top: 1px; }
+  .row .what strong { display: block; }
+  .row .what span { color: var(--muted); font-size: 0.95rem; }
+
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .skills li { font-size: 0.88rem; padding: 4px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--text); }
+
+  footer { margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+
+  @media (max-width: 600px) {
+    main { padding: 40px 16px 36px; }
+    .two { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1>Davit Hovhannisyan</h1>
+    <p class="role">AI / Deep Learning Engineer &amp; Researcher · Co-founder of Droplet · Yerevan, Armenia</p>
+    <p class="lede">I work as a deep learning engineer and researcher in multimedia security. Together with two co-founders, I'm building Droplet: machine learning methods for invisible watermarking of AI-generated content, with a focus on provenance designed to survive compression, editing and even regeneration by other AI models, and on making every output of an autonomous AI agent traceable to the agent that produced it and checkable against what it was authorized to do.</p>
+    <ul class="links">
+      <li><a href="mailto:david.hovhannisyan445@gmail.com">Email</a></li>
+      <li><a href="https://orcid.org/0009-0002-6723-9588">ORCID</a></li>
+      <li><a href="https://github.com/DavitHovhannisyan445">GitHub</a></li>
+      <!-- <li><a href="cv.pdf">CV (PDF)</a></li> -->
+    </ul>
+  </header>
+
+  <section id="droplet">
+    <h2>Current work</h2>
+    <div class="card">
+      <h3>Droplet</h3>
+      <p class="tag">Invisible watermarking for AI content provenance and AI agent safety</p>
+      <p>Droplet is developed by a team of three co-founders. It embeds an invisible watermark into images after generation, so it works with any generative model. Its blind detector identifies watermarked images without access to the original, even after common transformations such as compression, resizing and cropping.</p>
+      <div class="two">
+        <div class="box">
+          <h4>What we have now</h4>
+          <ul>
+            <li>Blind zero-bit watermark detector trained with structured hard-negative learning (paper accepted, see below)</li>
+            <li>Robustness testing against common image transformations</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>What we're researching next</h4>
+          <ul>
+            <li>Multi-bit watermark carrying a compact, tamper-resistant Droplet ID</li>
+            <li>Robustness to regeneration by other generative models</li>
+            <li>AgentTrace: binding content to the AI agent that produced it, so anyone who receives the content can find out which agent made it and whether it was within the agent's authorized mandate. This gives operators the evidence to investigate whether the agent was compromised (for example, through prompt injection) or simply made a mistake.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- <p style="margin-top:14px"><a href="https://YOUR-DROPLET-LINK">Demo / project page →</a></p> -->
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ul class="pubs">
+      <li>
+        <span class="pub-title"><span class="badge">Accepted</span>Robust Blind Zero-Bit Image Watermark Detection Using Structured Hard-Negative Learning</span>
+        <span class="pub-meta"><strong>D. Hovhannisyan</strong>, H. Gevorgyan, D. Faruk · <em>Acadlore Transactions on AI and Machine Learning</em>, 2026 (to appear)</span>
+      </li>
+      <li>
+        <span class="pub-title">Optimization of voice conversion model based on YourTTS architecture</span>
+        <span class="pub-meta"><strong>D. Hovhannisyan</strong>, G. Markosyan · <em>Signal, Image and Video Processing</em> (Springer), 2026 · <a href="https://doi.org/10.1007/s11760-026-05831-3">DOI</a></span>
+      </li>
+      <li>
+        <span class="pub-title">Hybrid audio encryption using Walsh–Hadamard transform, Hénon map, and adaptive 3D logistic–sine map</span>
+        <span class="pub-meta"><strong>D. Hovhannisyan</strong>, S. Episkoposian · <em>Journal of Mathematical Sciences</em> (Springer Nature), 2026 · <a href="https://doi.org/10.1007/s10958-026-08502-3">DOI</a></span>
+      </li>
+      <li>
+        <span class="pub-title">Hybrid audio encryption method based on DCT and Walsh–Hadamard transform using Hénon chaotic maps and logistic maps</span>
+        <span class="pub-meta">S. Episkoposyan, <strong>D. Hovhannisyan</strong> · <em>International Journal of Electronics and Telecommunications</em> 72(2), 2026 · <a href="https://doi.org/10.24425/ijet.2026.157909">DOI</a></span>
+      </li>
+      <li>
+        <span class="pub-title">Comparison of image encryption methods using hybrid frequency domain transforms and chaotic maps</span>
+        <span class="pub-meta">S. Episkoposyan, <strong>D. Hovhannisyan</strong> · <em>Proceedings of the Computer Science and Information Technologies (CSIT) Conference</em>, 2025 · <a href="https://doi.org/10.51408/csit2025_33">DOI</a></span>
+      </li>
+    </ul>
+    <p class="sub">Earlier work</p>
+    <ul class="pubs">
+      <li>
+        <span class="pub-title">Application of Walsh transformations for encryption and decryption of audio signals</span>
+        <span class="pub-meta"><strong>D. Hovhannisyan</strong> · Conference paper, 2025 · <a href="https://doi.org/10.5281/zenodo.14977970">DOI</a></span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="open-source">
+    <h2>Research projects</h2>
+    <ul class="pubs">
+      <li>
+        <span class="pub-title"><span class="badge wip">In progress</span><a href="https://github.com/DavitHovhannisyan445/DCTAdam">DCTAdam</a></span>
+        <span class="pub-meta">Ongoing research project: a modification of the Adam optimizer that performs parameter updates in the discrete cosine transform (DCT) domain. An early version is available as a Python package; experiments and documentation are in progress.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="when">2026 – present</div>
+        <div class="what"><strong>Co-founder, ML Engineer &amp; Researcher — Droplet</strong><span>One of three co-founders. Research in multimedia security: ML models and methods for embedding invisible watermarks into images, detecting them reliably after common image transformations, and linking AI-generated content to the agents that produce it.</span></div>
+      </div>
+      <div class="row">
+        <div class="when">2024 – present</div>
+        <div class="what"><strong>ML Engineer &amp; Researcher — Significant AI</strong><span>Research on new models and architectures for payment fraud detection: account takeover, stolen cards, classical fraud schemes and fraud carried out with AI tools. Imbalanced tabular data, feature engineering, model evaluation and false-positive reduction.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="when">2024 – 2026</div>
+        <div class="what"><strong>Master's degree, Applied Mathematics and Physics</strong><span>National Polytechnic University of Armenia</span></div>
+      </div>
+      <div class="row">
+        <div class="when">2020 – 2024</div>
+        <div class="what"><strong>Bachelor's degree, Applied Mathematics and Physics</strong><span>National Polytechnic University of Armenia</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>Python</li><li>PyTorch</li><li>Image &amp; audio signal processing</li><li>Invisible watermarking</li>
+      <li>CNN / ResNet</li><li>Transformers</li><li>RNN / GNN</li><li>Reinforcement learning</li>
+      <li>Fraud detection</li><li>Imbalanced tabular ML</li><li>SQL</li><li>Statistics</li>
+    </ul>
+    <p class="sub">Languages: Armenian, Russian, English</p>
+  </section>
+
+  <footer>© 2026 Davit Hovhannisyan</footer>
+</main>
+</body>
+</html>
